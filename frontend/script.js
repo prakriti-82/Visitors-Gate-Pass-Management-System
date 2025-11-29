@@ -1,5 +1,4 @@
-const API_URL = "http://localhost:3000/api/visitors";
-
+const API_URL =`${window.location.origin}/api/visitors`;
 // ============================
 // Prepare gate pass payload for email
 // ============================
@@ -325,7 +324,7 @@ document.getElementById("sendMailBtn").addEventListener("click", async () => {
 
     const payload = prepareGatePassEmailPayload(savedPass, photoPreview);
 
-    const res = await fetch("http://localhost:3000/api/visitors/sendGatePass", {
+    const res = await fetch(`${API_URL}/sendGatePass`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
