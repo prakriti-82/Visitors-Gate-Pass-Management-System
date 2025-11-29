@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Daily Gate Pass Report</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">GatePass</a>
+      <ul class="nav-links">
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="daily-report.html">Reports</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="center-wrapper">
+    <div class="container">
+      <header>
+        <h2> TATA BLUESCOPE STEEL</h2><br>
+        <h3>Daily Gate Pass Report</h3>
+      </header>
+
+      <!-- Filter Section -->
+      <div class="card" style="margin-bottom: 15px;">
+        <h3>Filter Visitors/Vendors</h3>
+        <div class="row">
+          <div>
+            <label for="filterDate">Date:</label>
+            <input type="date" id="filterDate">
+          </div>
+          <div>
+            <label for="filterMonth">Month:</label>
+            <input type="month" id="filterMonth">
+          </div>
+          <div class="row-btns">
+            <button id="applyFilter">Apply Filter</button>
+            <button id="resetFilter">Reset</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary Section -->
+      <div class="card" id="summarySection" style="display:none; margin-bottom:15px;">
+        <h3>Summary</h3>
+        <div id="summaryContent" style="display:flex; gap:20px; align-items:center;"><br>
+          <div><strong>Total Visitors:</strong> <span id="totalVisitors">0</span></div><br>
+          <div><strong>Total Vendors:</strong> <span id="totalVendors">0</span></div>
+          <div><strong>Total Gate Passes:</strong> <span id="totalPasses">0</span></div>
+          <div><strong>Issues/Errors:</strong> <span id="totalIssues">0</span></div>
+          <button id="downloadCSV" style="margin-left:auto; padding:5px 10px;">Download CSV</button>
+          <button id="printReport" style="padding:5px 10px;">Print Report</button> <!-- New button -->
+        </div>
+      </div>
+
+      <!-- Combined Table Section -->
+      <div class="card">
+        <h3>Visitor & Vendor Records</h3>
+        <table id="reportTable" border="1" style="width:100%; border-collapse:collapse;">
+          <thead>
+            <tr>
+              <th>Aadhaar</th>
+              <th>GatePass No.</th>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Visit History</th>
+              <th>Type</th>
+              <th>Last In</th>
+              <th>Last Out</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="daily-report.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Visitor Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">GatePass</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="daily-report.html">Reports</a></li> <!-- New link -->
+      </ul>
+    </div>
+  </nav>
+
+  <div class="center-wrapper">
+    <div class="container">
+
+       <header>
+        <h2> TATA BLUESCOPE STEEL</h2><br>
+        <h3>Dashboard</h3>
+      </header>
+
+
+      <!-- Filter Section -->
+      <div class="card" style="margin-bottom: 15px;">
+        <h3>Filter Visitors/Vendors</h3>
+        <div class="row">
+          <div>
+            <label for="filterDate">Date:</label>
+            <input type="date" id="filterDate">
+          </div>
+          <div>
+            <label for="filterMonth">Month:</label>
+            <input type="month" id="filterMonth">
+          </div>
+          <div class="row-btns">
+            <button id="applyFilter">Apply Filter</button>
+            <button id="resetFilter">Reset</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Combined Table Section -->
+      <div class="card">
+        <h3>Visitor & Vendor Records</h3>
+        <p id="todayLabel" style="font-size:0.9rem; color:#555; margin-bottom:10px;">
+          Showing today's records
+        </p>
+        <table id="visitorTable" border="1" style="width:100%; border-collapse:collapse;">
+          <thead>
+            <tr>
+              <th>Aadhaar</th>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Visit History</th>
+              <th>Type</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <!-- Gate Pass / History Card -->
+      <div class="card" id="visitorDetails" style="display:none; margin-top:20px;">
+        <button id="closeDetails">Close</button>
+        <div id="detailsContent" style="margin-top: 30px;"></div>
+      </div>
+    </div> <!-- close container -->
+  </div> <!-- close center-wrapper -->
+
+  <!-- add CDN for html2canvas -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
+
