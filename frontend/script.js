@@ -1,4 +1,4 @@
-const API_URL =`${window.location.origin}/api/visitors`;
+const API_URL = "https://visitors-gate-pass-management-system-25y4.onrender.com/api/visitors";
 // ============================
 // Prepare gate pass payload for email
 // ============================

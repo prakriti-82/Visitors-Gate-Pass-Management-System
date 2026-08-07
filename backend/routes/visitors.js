@@ -80,6 +80,35 @@ router.get("/filter", async (req, res) => {
   }
 });
 
+/* -------------------- Get By Aadhaar (autofill/duplicate-check) -------------------- */
+router.get("/get-by-aadhar/:aadhar", async (req, res) => {
+  try {
+    const aadhar = req.params.aadhar;
+
+    const visitor = await Visitor.findOne({ aadhaar: aadhar });
+    if (visitor) {
+      return res.json({
+        name: visitor.name,
+        address: visitor.address,
+        type: "Visitor",
+      });
+    }
+
+    const vendor = await Vendor.findOne({ aadhaar: aadhar });
+    if (vendor) {
+      return res.json({
+        name: vendor.name,
+        address: vendor.address,
+        type: "Vendor",
+      });
+    }
+
+    return res.status(404).json({ error: "Not found" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 /* -------------------- Visitor History -------------------- */
 router.get("/history/:aadhar", async (req, res) => {
   try {
