@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/api/visitors";
+const API_URL = "https://visitors-gate-pass-management-system-25y4.onrender.com/api/visitors";
 const visitorTableBody = document.querySelector("#visitorTable tbody");
 const visitorDetailsCard = document.getElementById("visitorDetails");
 const detailsContent = document.getElementById("detailsContent");
