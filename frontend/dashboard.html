@@ -2,57 +2,103 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Visitor Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visitor Dashboard — GatePass</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Navbar -->
+
+  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="nav-container">
-      <a href="index.html" class="nav-logo">GatePass</a>
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        GatePass
+      </a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="daily-report.html">Reports</a></li> <!-- New link -->
+        <li><a href="index.html">New Pass</a></li>
+        <li><a href="dashboard.html" class="active">Dashboard</a></li>
+        <li><a href="daily-report.html">Reports</a></li>
       </ul>
     </div>
   </nav>
 
-  <div class="center-wrapper">
-    <div class="container">
+  <!-- PAGE -->
+  <div class="page-wrapper">
+    <div class="form-shell" style="max-width: 900px;">
 
-       <header>
-        <h2> TATA BLUESCOPE STEEL</h2><br>
-        <h3>Dashboard</h3>
-      </header>
+      <!-- PAGE HEADER -->
+      <div class="dash-header">
+        <p class="dash-company">Tata BlueScope Steel</p>
+        <h1 class="dash-title">Visitor Dashboard</h1>
+      </div>
 
+      <!-- STATS ROW -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-label">Today's Passes</div>
+          <div class="stat-value" id="statToday">—</div>
+        </div>
+        <div class="stat-card accent">
+          <div class="stat-label">Visitors</div>
+          <div class="stat-value" id="statVisitors">—</div>
+        </div>
+        <div class="stat-card success">
+          <div class="stat-label">Vendors</div>
+          <div class="stat-value" id="statVendors">—</div>
+        </div>
+        <div class="stat-card warning">
+          <div class="stat-label">Total Records</div>
+          <div class="stat-value" id="statTotal">—</div>
+        </div>
+      </div>
 
-      <!-- Filter Section -->
-      <div class="card" style="margin-bottom: 15px;">
-        <h3>Filter Visitors/Vendors</h3>
-        <div class="row">
-          <div>
-            <label for="filterDate">Date:</label>
+      <!-- FILTER CARD -->
+      <div class="filter-card">
+        <div class="filter-card-header">Filter Records</div>
+        <div class="filter-row">
+          <div class="filter-field">
+            <label for="filterDate">By date</label>
             <input type="date" id="filterDate">
           </div>
-          <div>
-            <label for="filterMonth">Month:</label>
+          <div class="filter-field">
+            <label for="filterMonth">By month</label>
             <input type="month" id="filterMonth">
           </div>
-          <div class="row-btns">
-            <button id="applyFilter">Apply Filter</button>
-            <button id="resetFilter">Reset</button>
+          <div class="filter-btns">
+            <button id="applyFilter" class="btn-primary" style="height:40px; padding:0 18px; font-size:13px;">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+              </svg>
+              Apply
+            </button>
+            <button id="resetFilter" class="btn-secondary" style="height:40px; padding:0 14px; font-size:13px;">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <polyline points="1 4 1 10 7 10"/>
+                <path d="M3.51 15a9 9 0 1 0 .49-4.5"/>
+              </svg>
+              Reset
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Combined Table Section -->
-      <div class="card">
-        <h3>Visitor & Vendor Records</h3>
-        <p id="todayLabel" style="font-size:0.9rem; color:#555; margin-bottom:10px;">
-          Showing today's records
-        </p>
-        <table id="visitorTable" border="1" style="width:100%; border-collapse:collapse;">
+      <!-- RECORDS TABLE -->
+      <div class="table-card">
+        <div class="table-card-header">
+          <div>
+            <div class="table-card-title">Visitor &amp; Vendor Records</div>
+            <div class="table-card-sub" id="todayLabel">Showing today's records</div>
+          </div>
+        </div>
+        <table id="visitorTable">
           <thead>
             <tr>
               <th>Aadhaar</th>
@@ -67,17 +113,42 @@
         </table>
       </div>
 
-      <!-- Gate Pass / History Card -->
-      <div class="card" id="visitorDetails" style="display:none; margin-top:20px;">
-        <button id="closeDetails">Close</button>
-        <div id="detailsContent" style="margin-top: 30px;"></div>
+      <!-- VISITOR DETAILS PANEL -->
+      <div class="details-panel" id="visitorDetails" style="display:none;">
+        <div class="details-panel-top">
+          <span class="details-panel-title">Visitor Details</span>
+          <button id="closeDetails" class="btn-ghost">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+            Close
+          </button>
+        </div>
+        <div id="detailsContent"></div>
       </div>
-    </div> <!-- close container -->
-  </div> <!-- close center-wrapper -->
 
-  <!-- add CDN for html2canvas -->
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script>
+    /* Populate stat cards from localStorage on page load */
+    function updateStats() {
+      const raw = localStorage.getItem('visitors');
+      const all = raw ? JSON.parse(raw) : [];
+      const today = new Date().toISOString().slice(0, 10);
+      const todayPasses = all.filter(v => (v.date || '').slice(0,10) === today);
+      const visitors = all.filter(v => v.visitorType === 'new' || v.type === 'new');
+      const vendors  = all.filter(v => v.visitorType === 'vendor' || v.type === 'vendor');
+
+      const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+      set('statToday',    todayPasses.length || 0);
+      set('statVisitors', visitors.length    || 0);
+      set('statVendors',  vendors.length     || 0);
+      set('statTotal',    all.length         || 0);
+    }
+    updateStats();
+  </script>
   <script src="dashboard.js"></script>
 </body>
 </html>
-

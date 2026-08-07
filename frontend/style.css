@@ -1,190 +1,580 @@
 /* =========================
-   Global Styles
+   Base Reset & Typography
 ========================= */
-* {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  
 }
 
 body {
-  background: linear-gradient(135deg,#d8edfa,#719dc2,#69b0e9);
-  color: #333;
-  min-height: 80vh;
-  padding: 20px;
-  display: block; /* keep navbar at top */
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4f8;
+  color: #1a1a2e;
+  min-height: 100vh;
 }
 
 /* =========================
    Navbar
 ========================= */
-  .navbar {
-  background: linear-gradient(135deg,#9f9fda,#bbdefb,#a8e2e5);
-  padding: 0.95rem 2rem;
-  color: rgb(239, 231, 231);
-  border-bottom: 2px solid transparent;
-  border-image-slice: 1;
+.navbar {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 0 2rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-
 .nav-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .nav-logo {
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: rgb(15, 5, 5);
+  display: flex;
+  align-items: center;
+  gap: 10px;
   text-decoration: none;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  letter-spacing: -0.3px;
+}
+
+.nav-logo-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 4px;
 }
 
 .nav-links a {
-  color: rgb(27, 10, 10);
   text-decoration: none;
-  padding: 0.25rem 0.5rem;
-  transition: background 0.3s, color 0.3s;
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+  padding: 6px 12px;
+  border-radius: 7px;
+  border: 1px solid transparent;
+  transition: all 0.15s;
 }
 
 .nav-links a:hover {
-  background-color: #d3d892;
-  border-radius: 4px;
+  background: #f1f5f9;
+  color: #1a1a2e;
+}
+
+.nav-links a.active {
+  background: #eff6ff;
+  color: #2563eb;
+  border-color: #bfdbfe;
 }
 
 /* =========================
-   Layout Wrapper
+   Page Layout
 ========================= */
-.center-wrapper {
-  display: block; /* default mobile */
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 32px 16px 64px;
 }
 
-@media (min-width: 700px) {
-  .center-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: calc(100vh - 60px); /* approximate navbar height */
-  }
-}
-
-.container {
-  max-width: 1000px;
-  padding: 20px;
+.form-shell {
+  width: 100%;
+  max-width: 680px;
 }
 
 /* =========================
-   Visitor Page Styling
+   Page Header
 ========================= */
-header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-header h1 {
+.page-header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-size: 2rem;
+  gap: 18px;
+  margin-bottom: 28px;
 }
 
-.header-logo {
-  width: 200px;
-  height: 100px;
+.company-logo {
+  width: 72px;
+  height: 72px;
   object-fit: contain;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  padding: 6px;
+  flex-shrink: 0;
 }
 
-form {
+.page-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #2563eb;
+  margin-bottom: 5px;
+}
+
+.page-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a2e;
+  letter-spacing: -0.4px;
+  line-height: 1.2;
+}
+
+.page-sub {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+/* =========================
+   Form Sections
+========================= */
+.form-section {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 22px;
+  margin-bottom: 14px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
-form input,
-form select {
-  width: 100%;
-  padding: 8px 10px;
-  border: 1px solid rgb(16, 14, 14);
-  border-radius: 6px;
-  font-size: 0.95rem;
-  margin-bottom: 15px;
+.section-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-/* Buttons */
-button {
-  padding: 8px 14px;
-  border: black;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  transition: background 0.3s;
-}
-
-button:hover {
-  opacity: 0.9;
-}
-
-button.secondary {
-  background: #e7b1db;
-  color: #333;
-}
-
-button:not(.secondary) {
-    background: linear-gradient(135deg,#e3f2fd,#bbdefb,#90caf9);
-  color:#171515;
-}
-
-/* Gate Pass Preview */
-#gatePass {
-  background: whitesmoke;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-  margin-top: 20px;
-}
-
-#gatePass h3 {
-  margin-bottom: 15px;
-  font-size: 1.2rem;
-}
-
-/* Logo on screen */
-#gatePass img.logo {
-  max-width: 120px;
-  height: auto;
-  display: block;
-  margin: 0 auto 10px;
-}
-
-/* Alerts & Notes */
-.alert {
-  background: #fff3cd;
-  color: #856404;
-  padding: 8px 12px;
-  border-radius: 6px;
-  margin-top: 10px;
-}
-
-.note {
-  margin-top: 10px;
-  font-size: 0.85rem;
-  color: #231414;
-  background-color: #fae9ae;
+.section-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a2e;
 }
 
 /* =========================
-   Dashboard Page Styling
+   Field Grid & Inputs
+========================= */
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+.field-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #475569;
+}
+
+.field-input {
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #1a1a2e;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+  outline: none;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.field-input:focus {
+  border-color: #2563eb;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.field-input::placeholder {
+  color: #94a3b8;
+}
+
+select.field-input {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+.input-icon-wrap {
+  position: relative;
+}
+
+.input-icon-wrap .input-icon {
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.input-icon-wrap .field-input {
+  padding-left: 36px;
+}
+
+/* =========================
+   Visitor Type Toggle
+========================= */
+.type-toggle {
+  display: flex;
+  gap: 10px;
+}
+
+.type-option {
+  flex: 1;
+  cursor: pointer;
+}
+
+.type-option input[type="radio"] {
+  display: none;
+}
+
+.type-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 80px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.type-card svg {
+  color: #94a3b8;
+  transition: color 0.15s;
+}
+
+.type-option input[type="radio"]:checked + .type-card {
+  border-color: #2563eb;
+  border-width: 2px;
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.type-option input[type="radio"]:checked + .type-card svg {
+  color: #2563eb;
+}
+
+.type-card:hover {
+  border-color: #93c5fd;
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+/* =========================
+   Photo Upload Zone
+========================= */
+.photo-zone {
+  border: 1.5px dashed #cbd5e1;
+  border-radius: 10px;
+  padding: 24px 20px;
+  background: #f8fafc;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.photo-preview-wrap {
+  flex-shrink: 0;
+}
+
+#photoPreview,
+#camera {
+  display: none;
+  width: 130px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #e2e8f0;
+}
+
+.photo-zone-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.photo-zone-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #eff6ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2563eb;
+}
+
+.photo-zone-text {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.photo-zone-btns {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   Buttons
+========================= */
+.btn-ghost,
+.btn-ghost-dark {
+  height: 38px;
+  padding: 0 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #fff;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.btn-ghost:hover,
+.btn-ghost-dark:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+.btn-ghost svg,
+.btn-ghost-dark svg {
+  flex-shrink: 0;
+}
+
+.btn-secondary {
+  height: 48px;
+  padding: 0 20px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #fff;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.btn-secondary:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+.btn-primary {
+  height: 48px;
+  padding: 0 24px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-primary:active {
+  transform: scale(0.99);
+}
+
+/* =========================
+   Optional Email Section
+========================= */
+.optional-email-section {
+  padding: 16px 20px;
+}
+
+.optional-email-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.optional-email-icon {
+  flex-shrink: 0;
+  color: #16a34a;
+}
+
+.optional-email-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.optional-tag {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: #dcfce7;
+  color: #16a34a;
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.optional-email-body .field-input {
+  height: 38px;
+  font-size: 13px;
+  background: #fff;
+}
+
+/* =========================
+   Form Actions
+========================= */
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.form-actions .btn-primary {
+  flex: 1;
+  justify-content: center;
+}
+
+/* =========================
+   Gate Pass Output
+========================= */
+#gatePass {
+  background: #fff;
+  padding: 28px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  margin-top: 20px;
+}
+
+.pass-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.pass-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+#gatePass img.logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  padding: 4px;
+}
+
+#passDetails {
+  font-size: 14px;
+  line-height: 2;
+  color: #374151;
+}
+
+.pass-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   Dashboard Styles (Unchanged logic, updated look)
 ========================= */
 .grid {
   display: grid;
-  gap: 20px;
+  gap: 16px;
 }
 
 .cols-2 {
@@ -192,21 +582,23 @@ button:not(.secondary) {
 }
 
 .card {
-  background: white;
+  background: #fff;
   padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
 }
 
 .card h3 {
-  margin-bottom: 15px;
-  font-size: 1.2rem;
+  margin-bottom: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
 }
 
 .row {
   display: flex;
-  gap: 15px;
-  margin-bottom: 15px;
+  gap: 14px;
+  margin-bottom: 14px;
 }
 
 .row > div {
@@ -218,8 +610,246 @@ button:not(.secondary) {
   gap: 10px;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
+/* =========================
+   Dashboard Tables
+========================= */
+#visitorTable,
+#vendorTable,
+#passesTable,
+#reportTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+#visitorTable thead,
+#vendorTable thead,
+#passesTable thead,
+#reportTable thead {
+  background: #1e293b;
+  color: #fff;
+}
+
+#visitorTable th,
+#vendorTable th,
+#passesTable th,
+#reportTable th,
+#visitorTable td,
+#vendorTable td,
+#passesTable td,
+#reportTable td {
+  padding: 10px 13px;
+  text-align: left;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+#visitorTable th,
+#vendorTable th,
+#passesTable th,
+#reportTable th {
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+}
+
+#visitorTable tr:nth-child(even),
+#vendorTable tr:nth-child(even),
+#passesTable tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+/* Table action buttons */
+.btn-action {
+  height: 30px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: inherit;
+  transition: opacity 0.15s;
+}
+
+.btn-action:hover {
+  opacity: 0.85;
+}
+
+.btn-action.view {
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+}
+
+.btn-action.print {
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+}
+
+.btn-action.delete {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+/* =========================
+   Card Grid for Tables
+========================= */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+/* =========================
+   Reopened Gate Pass Card (Dashboard)
+========================= */
+.gate-pass-card {
+  background: #fff;
+  padding: 24px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  margin-top: 20px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.gate-pass-card h2 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #1a1a2e;
+}
+
+.gate-pass-card img.logo {
+  width: 80px;
+  height: auto;
+  display: block;
+  margin: 0 auto 12px;
+  object-fit: contain;
+}
+
+.gate-pass-card .photo-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+  gap: 14px;
+}
+
+.gate-pass-card .photo-section img {
+  width: 140px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+/* =========================
+   Alerts
+========================= */
+.alert {
+  background: #fffbeb;
+  color: #92400e;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #fde68a;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.note {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #374151;
+  background: #fefce8;
+  border: 1px solid #fef08a;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+/* =========================
+   Responsive
+========================= */
+/* table-card overrides for dashboard.js-injected btn-action */
+.table-card .btn-action {
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: inherit;
+  transition: opacity 0.15s;
+  border: 1px solid transparent;
+}
+
+.table-card .btn-action.view {
+  background: #eff6ff;
+  color: #2563eb;
+  border-color: #bfdbfe;
+}
+
+.table-card .btn-action.delete {
+  background: #fef2f2;
+  color: #dc2626;
+  border-color: #fecaca;
+}
+
+.table-card .btn-action.print {
+  background: #f0fdf4;
+  color: #16a34a;
+  border-color: #bbf7d0;
+}
+
+.table-card .btn-action:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+
+  .page-wrapper {
+    padding: 20px 12px 48px;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .field.full {
+    grid-column: 1;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions .btn-primary,
+  .form-actions .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .type-toggle {
+    gap: 8px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
   .cols-2 {
     grid-template-columns: 1fr;
   }
@@ -228,501 +858,417 @@ button:not(.secondary) {
     flex-direction: column;
   }
 
-  header h1 {
+  .stats-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .filter-row {
     flex-direction: column;
+  }
+
+  .filter-btns {
+    width: 100%;
+  }
+
+  .filter-btns .btn-primary,
+  .filter-btns .btn-secondary {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .summary-strip-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .summary-actions {
+    margin-left: 0;
   }
 }
 
 /* =========================
-   Dashboard Table Styling
+   Dashboard Page Header
 ========================= */
-#visitorTable {
+.dash-header {
+  margin-bottom: 28px;
+}
+
+.dash-company {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #2563eb;
+  margin-bottom: 4px;
+}
+
+.dash-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a2e;
+  letter-spacing: -0.4px;
+}
+
+/* =========================
+   Stats Row
+========================= */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.stat-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #94a3b8;
+  margin-bottom: 6px;
+}
+
+.stat-value {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a1a2e;
+  letter-spacing: -0.5px;
+}
+
+.stat-card.accent .stat-value { color: #2563eb; }
+.stat-card.success .stat-value { color: #16a34a; }
+.stat-card.warning .stat-value { color: #d97706; }
+
+/* =========================
+   Filter Card
+========================= */
+.filter-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+
+.filter-card-header {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+}
+
+.filter-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+  min-width: 140px;
+}
+
+.filter-field label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #475569;
+}
+
+.filter-field input {
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #1a1a2e;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  width: 100%;
+}
+
+.filter-field input:focus {
+  border-color: #2563eb;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+}
+
+.filter-btns {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  padding-bottom: 1px;
+}
+
+/* =========================
+   Table Card
+========================= */
+.table-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.table-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.table-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.table-card-sub {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+.table-card table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
-  font-size: 0.95rem;
+  font-size: 13px;
 }
 
-#visitorTable thead {
-  background: #1f2937; /* dark navbar color */
-  color: white;
+.table-card thead {
+  background: #1e293b;
 }
 
-#visitorTable th,
-#visitorTable td {
-  padding: 10px 12px;
+.table-card thead th {
+  padding: 11px 16px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: #94a3b8;
+  text-transform: uppercase;
 }
 
-#visitorTable tr:nth-child(even) {
-  background: #f9f9f9; /* striped rows */
+.table-card tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #374151;
+  vertical-align: middle;
 }
 
-#visitorTable th {
+.table-card tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table-card tbody tr:hover {
+  background: #f8fafc;
+}
+
+/* Type badge */
+.type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 5px;
+  font-size: 11px;
   font-weight: 600;
 }
 
-/* Action buttons inside table */
-#visitorTable .btn-action {
-  padding: 6px 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.85rem;
-  transition: background 0.3s;
+.type-badge.visitor {
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
 }
 
-#visitorTable .btn-action.view {
-  background: #007bff;
-  color: #fff;
+.type-badge.vendor {
+  background: #faf5ff;
+  color: #7c3aed;
+  border: 1px solid #ddd6fe;
 }
 
-#visitorTable .btn-action.delete {
-  background: #e74c3c;
-  color: #fff;
+/* =========================
+   Visitor Details Panel
+========================= */
+.details-panel {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 24px;
+  margin-top: 14px;
 }
 
-#visitorTable .btn-action:hover {
-  opacity: 0.9;
-}
-/* File Input Styling */
-input[type="file"] {
-  border: 1px solid #0f0d0d;
-  border-radius: 6px;
-  padding: 6px;
-  background: linear-gradient(135deg,#e3f2fd,#bbdefb,#90caf9);
-  font-size: 0.95rem;
-  cursor: pointer;
+.details-panel-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f1f5f9;
 }
 
-/* Print Fix */
+.details-panel-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+/* =========================
+   Summary Strip (Report)
+========================= */
+.summary-strip {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  display: none;
+}
+
+.summary-strip.visible {
+  display: block;
+}
+
+.summary-strip-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.summary-strip-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.summary-stats {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.summary-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.summary-stat-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.summary-stat-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.summary-actions {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+/* =========================
+   Empty State
+========================= */
+.empty-state {
+  text-align: center;
+  padding: 48px 20px;
+  color: #94a3b8;
+}
+
+.empty-state svg {
+  margin: 0 auto 12px;
+  display: block;
+  opacity: 0.4;
+}
+
+.empty-state p {
+  font-size: 14px;
+}
+
+/* =========================
+   Print Styles
+========================= */
 @media print {
   body {
     margin: 0;
     padding: 0;
     background: white;
+    font-family: 'Inter', Arial, sans-serif;
   }
 
   body * {
     visibility: hidden;
   }
 
-  #gatePass, #gatePass * {
+  #gatePass,
+  #gatePass * {
     visibility: visible;
   }
 
   #gatePass {
-    position: relative;
-    margin: 0 auto;          /* center horizontally */
-    width: 80%;              /* keep inside page */
-    max-width: 700px;        /* avoid oversized content */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     padding: 20px;
     background: white;
+    border: none;
     box-shadow: none;
-    page-break-inside: avoid;
+    border-radius: 0;
   }
 
-  #gatePass .logo {
-    max-width: 100px;
-    margin: 0 auto 10px;
+  #gatePass img.logo,
+  .gate-pass-card img.logo,
+  .logo {
     display: block;
+    max-width: 90px;
+    height: auto;
+    margin: 0 auto 10px;
+    object-fit: contain;
   }
 
+  #gatePass .pass-actions,
   #gatePass button {
-    display: none; /* hide print/back buttons */
+    display: none;
   }
 
-  @page {
-    margin: 15mm; /* safe printer margin */
-  }
-}
-/* =========================
-   Past Gate Passes Table Styling
-========================= */
-#passesTable {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-  font-size: 0.95rem;
-}
-
-#passesTable thead {
-  background: #1f2937; /* dark navbar color */
-  color: white;
-}
-
-#passesTable th,
-#passesTable td {
-  padding: 10px 12px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-#passesTable tr:nth-child(even) {
-  background: #f9f9f9; /* striped rows */
-}
-
-#passesTable th {
-  font-weight: 600;
-}
-
-/* Action buttons inside Past Gate Passes table */
-#passesTable .btn-action {
-  padding: 6px 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.85rem;
-  transition: background 0.3s;
-}
-
-#passesTable .btn-action.view {
- background: linear-gradient(135deg,#e3f2fd,#bbdefb,#90caf9);
-  color: #140f0f;
-}
-
-#passesTable .btn-action.print {
-background: linear-gradient(135deg,#e3f2fd,#bbdefb,#90caf9);
-  color: #171515;
-}
-
-#passesTable .btn-action.delete {
- background: linear-gradient(135deg,#e3f2fd,#bbdefb,#90caf9);
-  color: #151313;
-}
-
-#passesTable .btn-action:hover {
-  opacity: 0.9;
-}
-/* Side-by-side card grid for Visitor & Vendor tables */
-.card-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  align-items: start;
-}
-
-/* Make responsive for smaller screens */
-@media (max-width: 900px) {
-  .card-grid {
-    grid-template-columns: 1fr;
-  }
-}
-/* =========================
-   Vendor Table Styling (Same as Visitor Table)
-========================= */
-#vendorTable {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-  font-size: 0.95rem;
-}
-
-#vendorTable thead {
-  background: #1f2937; /* same dark header */
-  color: white;
-}
-
-#vendorTable th,
-#vendorTable td {
-  padding: 10px 12px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-#vendorTable tr:nth-child(even) {
-  background: #f9f9f9; /* striped rows */
-}
-
-#vendorTable th {
-  font-weight: 600;
-}
-
-/* Action buttons inside Vendor table (if you add them) */
-#vendorTable .btn-action {
-  padding: 6px 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.85rem;
-  transition: background 0.3s;
-}
-
-#vendorTable .btn-action.view {
-  background: #007bff;
-  color: #fff;
-}
-
-#vendorTable .btn-action.delete {
-  background: #e74c3c;
-  color: #fff;
-}
-
-#vendorTable .btn-action:hover {
-  opacity: 0.9;
-}
-
-/* Fix spacing between photo input and camera section */
-#visitorPhoto,
-#photoPreview,
-#camera {
-  margin-bottom: 6px !important; /* tighter spacing */
-}
-
-#photoPreview,
-#camera {
-  display: none;
-  max-width: 150px;
-  border-radius: 8px;
-  margin-top: 6px;
-}
-
-#startCamera,
-#takePhoto {
-  margin-top: 6px;
-}
-/* =========================
-   Visitor Photo & Camera Layout Fix
-========================= */
-.photo-section {
-  margin-bottom: 15px;
-}
-
-.photo-preview {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-}
-
-#photoPreview,
-#camera {
-  display: none;
-  width: 180px;
-  height: auto;
-  border-radius: 8px;
-  border: 1px solid #999;
-}
-
-.camera-buttons {
-  display: flex;
-  gap: 10px;
-}
-
-#startCamera,
-#takePhoto {
-  margin-top: 4px;
-}
-/* =========================
-   Modern Visitor Photo Card
-========================= */
-.photo-card {
-  background: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
-  padding: 16px 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-}
-
-.photo-card h3 {
-  font-size: 1.1rem;
-  margin-bottom: 12px;
-  color: #0e2433;
-}
-
-.photo-wrapper {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.photo-upload {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.file-label {
-  font-weight: 500;
-  margin-bottom: 6px;
-  color: #222;
-}
-
-#visitorPhoto {
-  width: 220px;
-  background: linear-gradient(135deg,#e3f2fd,#bbdefb,#90caf9);
-  border: 1px solid #666;
-  border-radius: 6px;
-  padding: 6px;
-  cursor: pointer;
-}
-
-.photo-display {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-#photoPreview,
-#camera {
-  display: none;
-  width: 150px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid #999;
-  background: #f9f9f9;
-}
-
-.camera-controls {
-  margin-top: 12px;
-  display: flex;
-  gap: 12px;
-}
-
-.camera-controls button {
-  background: linear-gradient(135deg,#e3f2fd,#bbdefb,#90caf9);
-  border: none;
-  border-radius: 6px;
-  padding: 8px 14px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: 0.3s ease;
-}
-
-.camera-controls button:hover {
-  background: linear-gradient(135deg,#bbdefb,#90caf9,#64b5f6);
-  transform: translateY(-1px);
-}
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: white;
-  min-width: 140px;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-  border-radius: 6px;
-  z-index: 1;
-  padding: 5px 0;
-}
-
-.dropdown-content a {
-  display: block;
-  padding: 8px 12px;
-  text-decoration: none;
-  color: #111;
-  font-size: 0.9rem;
-}
-
-.dropdown-content a:hover {
-  background-color: #f0f0f0;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-/* =========================
-   Dashboard Reopen Gate Pass Card
-========================= */
-.gate-pass-card {
-  background: whitesmoke;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-  margin-top: 20px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-.gate-pass-card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  color: #0e2433;
-}
-
-.gate-pass-card img.logo {
- max-width: 100px;
-    margin: 0 auto 10px;
-    display: block;
-}
-
-.gate-pass-card .photo-section {
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
-  gap: 15px;
-}
-
-.gate-pass-card .photo-section img {
-  width: 150px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid #999;
-  background: #f9f9f9;
-} 
-/* 🔹 Fix oversized logo when printing from the dashboard */
-@media print {
-  .logo,
-  #gatePass img.logo {
-    display: block;
-    max-width: 100px;    /* Control the logo width */
-    height: auto;        /* Maintain aspect ratio */
-    margin: 0 ; /* Center it horizontally */
-    object-fit: contain; /* Prevent distortion */
-  }
-
-  /* Optional: If you want to completely hide it instead */
-  /* .logo, #gatePass .logo { display: none !important; } */
-}
-
-
-/* =========================
-   Simple Daily Report Print Styling
-========================= */
-@media print {
-  body {
-    margin: 0;
-    padding: 0;
-    background: white;
-    font-family: Arial, sans-serif;
-  }
-
-  /* Hide everything except report content */
-  body * {
-    visibility: hidden;
-  }
-
-  #summarySection, 
-  #summarySection *, 
-  #reportTable, 
+  /* Report print */
+  #summarySection,
+  #summarySection *,
+  #reportTable,
   #reportTable * {
     visibility: visible;
   }
 
-  /* Center report content */
-  #summarySection, 
-  #reportTable {
-    margin: 0 ;
-        page-break-inside: avoid;
-  }
-
-  /* Table styles */
   #reportTable {
     border-collapse: collapse;
     width: 100%;
-    font-size: 0.95rem;
+    font-size: 13px;
   }
 
   #reportTable th,
@@ -733,27 +1279,17 @@ background: linear-gradient(135deg,#e3f2fd,#bbdefb,#90caf9);
   }
 
   #reportTable th {
-    background-color: #f2f2f2;
+    background: #f2f2f2;
   }
 
-  /* Summary section styling */
-  #summarySection {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    font-weight: bold;
-    margin-bottom: 0;
-  }
-
-  /* Hide buttons on print */
-  #applyFilter, #resetFilter, #downloadCSV, #printReport {
+  #applyFilter,
+  #resetFilter,
+  #downloadCSV,
+  #printReport {
     display: none;
   }
 
-  /* Page margin */
   @page {
-    margin: 10mm;
+    margin: 12mm;
   }
 }
-
-
