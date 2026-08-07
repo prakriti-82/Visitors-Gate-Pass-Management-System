@@ -1,4 +1,4 @@
-# Visitor Management System
+# Visitor's Gate Pass Management System
 A responsive web app for managing visitor entry, gate-pass generation, email notifications, reporting, and secure data storage. Built with frontend–backend integration and MySQL.
 
 Features:
